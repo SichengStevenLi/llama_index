@@ -63,4 +63,13 @@ python more_data_type.py -m <path_to_model> -t <path_to_tokenizer> -l <low_bit_f
 > Note: If you're using [meta-llama/Llama-2-7b-hf](https://huggingface.co/meta-llama/Llama-2-7b-hf) model in this example, it is recommended to use transformers version
 > <=4.34.
 
-### Text2SQL
+### Text2SQL Example
+This example [text2sql](./text2sql.py) demonstrates how to use `IPEX-LLM` and llama_index to run a text-to-SQL model on Intel hardware. This example shows how to create a database, define a schema, and run SQL queries using low-bit model optimized with `IPEX-LLM`. Run the example as following:
+
+```
+python text2sql.py -m <path_to_model> -e <path_to_embedding_model> -q <query_to_LLM> -n <num_predict>
+```
+
+>Please note that in this example we'll use [meta-llama/Meta-Llama-3-8B](https://huggingface.co/meta-llama/Meta-Llama-3-8B) model for demonstration. It requires updating transformers and tokenizers packages. But you are also welcomed to use other models.
+
+>If you encounter output issues, please try changing the model.
