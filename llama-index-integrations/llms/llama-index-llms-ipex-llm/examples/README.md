@@ -62,5 +62,3 @@ python more_data_type.py -m <path_to_model> -t <path_to_tokenizer> -l <low_bit_f
 
 > Note: If you're using [meta-llama/Llama-2-7b-hf](https://huggingface.co/meta-llama/Llama-2-7b-hf) model in this example, it is recommended to use transformers version
 > <=4.34.
-
-### Test ###
