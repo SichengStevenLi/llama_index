@@ -1,5 +1,5 @@
 import torch
-from llama_index.core import SQLDatabase, Settings
+from llama_index.core import SQLDatabase
 from llama_index.core.retrievers import NLSQLRetriever
 from llama_index.core.query_engine import RetrieverQueryEngine
 from llama_index.llms.ipex_llm import IpexLLM
@@ -49,12 +49,12 @@ def main(args):
     sql_database = define_sql_database(engine, city_stats_table)
    
     model_id=args.embedding_model_path
-    Settings.embed_model =  IpexLLMEmbedding(model_id)
+    device_map = args.device
 
 
     embed_model = IpexLLMEmbedding(
             model_id,
-            device="xpu"
+            device=device_map
     )
 
     llm =  IpexLLM.from_model_id(
@@ -64,7 +64,7 @@ def main(args):
         max_new_tokens=args.n_predict,
         generate_kwargs={"temperature": 0.7, "do_sample": False},
         model_kwargs={},
-        device_map="xpu"
+        device_map=device_map
     )
 
 
@@ -85,14 +85,41 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='LlamaIndex IpexLLM Example')
-    parser.add_argument('-m','--model-path', type=str, required=True,
-                        help='the path to transformers model')
-    parser.add_argument('-q', '--question', type=str, default='Which city has the highest population?',
-                        help='qustion you want to ask.')
-    parser.add_argument('-e','--embedding-model-path',default="BAAI/bge-small-en",
-                        help="the path to embedding model path")
-    parser.add_argument('-n','--n-predict', type=int, default=32,
-                        help='max number of predict tokens')
+    parser.add_argument(
+        '-m',
+        '--model-path',
+        type=str,
+        required=True,
+        help='the path to transformers model'
+    )
+    parser.add_argument(
+        "--device",
+        "-d",
+        type=str,
+        default="cpu",
+        choices=["cpu", "xpu"],
+        help="The device (Intel CPU or Intel GPU) the LLM model runs on",
+    )
+    parser.add_argument(
+        '-q',
+        '--question',
+        type=str,
+        default='Which city has the highest population?',
+        help='qustion you want to ask.'
+    )
+    parser.add_argument(
+        '-e',
+        '--embedding-model-path',
+        default="BAAI/bge-small-en",
+        help="the path to embedding model path"
+    )
+    parser.add_argument(
+        '-n',
+        '--n-predict',
+        type=int,
+        default=32,
+        help='max number of predict tokens'
+    )
     args = parser.parse_args()
 
     main(args)

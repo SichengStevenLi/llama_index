@@ -102,7 +102,7 @@ In Anaconda Prompt:
 Then, run the example as following:
 
 ```
-python text2sql.py -m <path_to_model> -e <path_to_embedding_model> -q <query_to_LLM> -n <num_predict>
+python text2sql.py -m <path_to_model> -d <device> -e <path_to_embedding_model> -q <query_to_LLM> -n <num_predict>
 ```
 
 >Please note that in this example we'll use [meta-llama/Meta-Llama-3-8B](https://huggingface.co/meta-llama/Meta-Llama-3-8B) model for demonstration. It requires updating transformers and tokenizers packages. But you are also welcomed to use other models.
