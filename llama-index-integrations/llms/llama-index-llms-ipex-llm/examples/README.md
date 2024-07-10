@@ -95,7 +95,7 @@ In Anaconda Prompt:
 >>export SYCL_CACHE_PERSISTENT=1
 >>```
 
->[!NOTE] For the first time that each model runs on Intel iGPU/Intel Arc A300-Series or Pro A60, it may take several minutes to compile.
+>**NOTE** For the first time that each model runs on Intel iGPU/Intel Arc A300-Series or Pro A60, it may take several minutes to compile.
 
 ----
 ### Run the Example
