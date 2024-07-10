@@ -72,26 +72,29 @@ It requires `llama-index-embeddings-ipex-llm` package as it uses `IPEX-LLM` embe
 > pip install llama-index-embeddings-ipex-llm
 > ```
 
-
+#### Runtime Configurations
 For optimal performance, it is recommended to set several environment variables based on your device:
 
-#### For Windows Users with Intel Core Ultra integrated GPU
+- For Windows Users with Intel Core Ultra integrated GPU
 In Anaconda Prompt: 
-```
-set SYCL_CACHE_PERSISTENT=1
-set BIGDL_LLM_XMX_DISABLED=1
-```
-#### For Linux Users with Intel Arc A-Series GPU:
-```
-# Configure oneAPI environment variables. Required step for APT or offline installed oneAPI.
-# Skip this step for PIP-installed oneAPI since the environment has already been configured in LD_LIBRARY_PATH.
-source /opt/intel/oneapi/setvars.sh
+>>```
+>>set SYCL_CACHE_PERSISTENT=1
+>>set BIGDL_LLM_XMX_DISABLED=1
+>>```
 
-# Recommended Environment Variables for optimal performance
-export USE_XETLA=OFF
-export SYCL_PI_LEVEL_ZERO_USE_IMMEDIATE_COMMANDLISTS=1
-export SYCL_CACHE_PERSISTENT=1
-```
+
+- For Linux Users with Intel Arc A-Series GPU:
+>>```
+>># Configure oneAPI environment variables. Required step for APT or offline installed oneAPI.
+>># Skip this step for PIP-installed oneAPI since the environment has already been configured in LD_LIBRARY_PATH.
+>>source /opt/intel/oneapi/setvars.sh
+>>
+>># Recommended Environment Variables for optimal performance
+>>export USE_XETLA=OFF
+>>export SYCL_PI_LEVEL_ZERO_USE_IMMEDIATE_COMMANDLISTS=1
+>>export SYCL_CACHE_PERSISTENT=1
+>>```
+
 >[!NOTE] For the first time that each model runs on Intel iGPU/Intel Arc A300-Series or Pro A60, it may take several minutes to compile.
 
 ----
