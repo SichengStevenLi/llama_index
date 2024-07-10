@@ -64,9 +64,9 @@ python more_data_type.py -m <path_to_model> -t <path_to_tokenizer> -l <low_bit_f
 > <=4.34.
 
 ### Text2SQL Example
-This example [text2sql](./text2sql.py) demonstrates how to use `IPEX-LLM` and llama_index to run a text-to-SQL model on Intel hardware. This example shows how to create a database, define a schema, and run SQL queries using low-bit model optimized with `IPEX-LLM`. 
+This example [text2sql](./text2sql.py) demonstrates how to use LlamaIndex with `ipex-llm` to run a text-to-SQL model on Intel hardware. This example shows how to create a database, define a schema, and run SQL queries using low-bit model optimized with `ipex-llm`. 
 ### Setup
-It requires `llama-index-embeddings-ipex-llm` package as it uses `IPEX-LLM` embedding.
+It requires `llama-index-embeddings-ipex-llm` package as it uses `ipex-llm` embedding.
 >
 > ```bash
 > pip install llama-index-embeddings-ipex-llm
