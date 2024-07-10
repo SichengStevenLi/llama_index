@@ -1,5 +1,4 @@
 import torch
-from llama_index.llms.ollama import Ollama
 from llama_index.core import SQLDatabase, Settings
 from llama_index.core.retrievers import NLSQLRetriever
 from llama_index.core.query_engine import RetrieverQueryEngine
