@@ -70,10 +70,10 @@ def main(args):
 
     # default retrieval (return_raw=True)
     nl_sql_retriever = NLSQLRetriever(
-                    sql_database, 
-                    tables=["city_stats"], 
-                    llm=llm, 
-                    embed_model=embed_model, 
+                    sql_database,
+                    tables=["city_stats"],
+                    llm=llm,
+                    embed_model=embed_model
                     return_raw=True
     )
 
@@ -105,7 +105,7 @@ if __name__ == "__main__":
         '--question',
         type=str,
         default='Which city has the highest population?',
-        help='qustion you want to ask.'
+        help='question you want to ask.'
     )
     parser.add_argument(
         '-e',
