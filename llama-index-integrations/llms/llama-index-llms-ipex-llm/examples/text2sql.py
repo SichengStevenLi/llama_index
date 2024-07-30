@@ -73,7 +73,7 @@ def main(args):
                     sql_database,
                     tables=["city_stats"],
                     llm=llm,
-                    embed_model=embed_model
+                    embed_model=embed_model,
                     return_raw=True
     )
 
